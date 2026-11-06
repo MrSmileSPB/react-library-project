@@ -1,0 +1,27 @@
+.book-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: min(100%, 400px);
+    background-color: bisque;
+}
+
+.book-card__title {
+    color: black;
+}
+
+.book-card__author {
+    color: black;
+}
+
+.book-card__genre {
+    color: black;
+}
+
+.book-card__year {
+    color: black;
+}

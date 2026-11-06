@@ -34,5 +34,12 @@ export const books: Book[] = [
         author: 'Булгаков',
         genre: 'повесть',
         year: 1925
+    },
+    {
+        id: 6,
+        title: 'Преступление и наказание',
+        author: 'Достоевский',
+        genre: 'роман',
+        year: 1866
     }
 ];

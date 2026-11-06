@@ -1,7 +1,7 @@
-import type { Book } from '../data/books.ts';
-import  BookCard  from './BookCard';
+import type { Book } from '../../data/books';
+import BookCard from '../BookCard/BookCard';
 
-function BookList({ books }: { books : Book[]}) {
+function BookList({ books }: { books: Book[] }) {
     return (
         books.map((book) => {
             return (
