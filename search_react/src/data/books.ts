@@ -1,4 +1,4 @@
-type Book = { id: number; title: string; author: string; genre: string; year: number };
+export type Book = { id: number; title: string; author: string; genre: string; year: number };
 export const books: Book[] = [
     {
         id: 1,
