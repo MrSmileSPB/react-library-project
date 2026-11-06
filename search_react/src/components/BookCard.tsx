@@ -1,6 +1,6 @@
 import type { Book } from '../data/books.ts';
 
-export function BookCard({ book }: { book: Book }) {
+function BookCard({ book }: { book: Book }) {
     return (
         <div>
             <h2>
@@ -18,3 +18,5 @@ export function BookCard({ book }: { book: Book }) {
         </div>
     )
 }
+
+export default BookCard;

@@ -1,5 +1,5 @@
 import type { Book } from '../data/books.ts';
-import { BookCard } from './BookCard.tsx';
+import  BookCard  from './BookCard';
 
 function BookList({ books }: { books : Book[]}) {
     return (
@@ -12,3 +12,5 @@ function BookList({ books }: { books : Book[]}) {
         })
     )
 }
+
+export default BookList;
