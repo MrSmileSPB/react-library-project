@@ -2,11 +2,12 @@ import BookList from './components/BookList/BookList';
 import { books } from './data/books';
 import './App.css'
 import { useState } from 'react';
+import Filters from './components/Filters/Filters';
 
 
 function App() {
 
-const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
 
 
 
@@ -20,16 +21,9 @@ const [searchQuery, setSearchQuery] = useState('');
 
   return (
     <div className='content'>
-      <div className='search'>
-        <input
-          type="text"
-          placeholder='Поиск'
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-        />
-      </div>
+      <Filters query={searchQuery} setQuery={setSearchQuery} />
       <div className='catalog'>
-        <BookList books={(filteredBooks) ? filteredBooks : books} />
+        <BookList books={filteredBooks} />
       </div>
     </div>
 
