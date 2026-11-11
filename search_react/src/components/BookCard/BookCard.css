@@ -5,12 +5,13 @@
     gap: 10px;
     border: 1px solid black;
     border-radius: 15px;
-    width: min(100%, 350px);
+    width: min(100%, 300px);
     height: 250px;
     background-image: var(--bg-image);
     background-size: cover;
     background-position: center;
     padding: 0 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 .book-card__text {
@@ -26,14 +27,14 @@
 
 .book-card__title,
 .book-card__author,
-.book-card__genre,
-.book-card__year {
+.book-card__genre {
     color: black;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .book-card__title {
     font-size: 1rem;
-    font-weight: 900;
+    font-weight: 600;
 }
 
 .book-card__author {
@@ -46,6 +47,7 @@
 
 .book-card__year {
     font-size: 12px;
+    color: black;
 }
 
 .book-card__year--textcircle {
