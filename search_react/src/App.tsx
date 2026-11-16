@@ -3,6 +3,7 @@ import { books } from './data/books';
 import './App.css'
 import { useState } from 'react';
 import Filters from './components/Filters/Filters';
+import Header from './components/Header/Header';
 
 
 function App() {
@@ -27,7 +28,9 @@ function App() {
 
 
   return (
+
     <div className='content'>
+      <Header/>
       <Filters query={searchQuery} setQuery={setSearchQuery} genre={genre} setGenre={setGenre} />
       <div className='catalog'>
         <BookList books={filteredBooks} />

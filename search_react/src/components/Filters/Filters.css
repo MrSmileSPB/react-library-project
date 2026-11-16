@@ -1,21 +1,96 @@
 .filters {
-}
-.filters__search {
-}
-.filters__genre {
-}
-.filters__label {
-}
-.filters__select {
-}
-
-.filters__search {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 40px;
+  gap: 20px;
+  background: white;
+  padding: 10px;
 }
 
-.filters__search input{
+.filters__search {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: min(600px, 100%);
+  background-color: rgb(255, 255, 255);
+}
+
+.filters__icon-search {
+  position: absolute;
+  left: 16px;
+  pointer-events: none;
+  /* Чтобы клик проходил сквозь иконку в инпут */
+}
+
+.filters__input {
+  width: 100%;
   padding: 10px;
+  border: none;
+  background-color: #e9e9e9;
+  border-radius: 10px;
+  outline: none;
+  padding-left: 45px;
+}
+
+.filters__genre {
+  display: flex;
+  border-radius: 10px;
+  padding: 0 10px;
+  gap: 10px;
+}
+
+.filters__label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #333;
+  font-weight: 500;
+}
+
+.filters__select {
+  appearance: none;
+  -webkit-appearance: none;
+  /* Для Safari */
+  -moz-appearance: none;
+  /* Для Firefox */
+  font-size: 16px;
+  color: #333;
+  padding: 8px 32px 8px 12px;
+  cursor: pointer;
+  outline: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 16px;
+  border: 1px solid black;
+  border-radius: 20px;
+  background-color: #e9e9e9;
+}
+
+@media (max-width: 768px) {
+  .filters {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas:
+      "search"
+      "filter";
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+    overflow: hidden; 
+  }
+
+  .filters__search {
+    max-width: 100%;
+    grid-area: search;
+    width: 100%;
+  }
+
+  .filters__genre {
+    grid-area: filter;
+    width: 100%;
+    justify-content: center;
+  }
 }
