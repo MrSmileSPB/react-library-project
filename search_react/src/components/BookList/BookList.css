@@ -1,8 +1,9 @@
 .book-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 10px;
-    margin: 10px 0;
+    max-width: 1200px;
+    margin: 20px auto;
+    justify-content: start;
+    justify-items: center;
 }
