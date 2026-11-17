@@ -1,3 +1,4 @@
+import './Filters.css'
 
 type FiltersProps = {
     query: string;
