@@ -10,6 +10,7 @@ function App() {
 
   const [searchQuery, setSearchQuery] = useState('');
   const [genre, setGenre] = useState('all');
+  const [favoriteBooks, setFavoriteBooks] = useState<number[]>([]);
 
 
 
@@ -33,7 +34,7 @@ function App() {
       <Header/>
       <Filters query={searchQuery} setQuery={setSearchQuery} genre={genre} setGenre={setGenre} />
       <div className='catalog'>
-        <BookList books={filteredBooks} />
+        <BookList books={filteredBooks}/>
       </div>
     </div>
 

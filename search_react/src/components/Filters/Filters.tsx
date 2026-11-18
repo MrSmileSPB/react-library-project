@@ -1,7 +1,5 @@
 import './Filters.css'
 
-import './Filters.css'
-
 type FiltersProps = {
     query: string;
     setQuery: (str: string) => void;
@@ -30,13 +28,25 @@ function Filters({ query, setQuery, genre, setGenre }: FiltersProps) {
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#888" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
                     </svg>
-                    Жанр:  
+                    Жанр:
                 </label>
                 <select id="genre" className="filters__select" onChange={(e) => setGenre(e.target.value)} value={genre}>
                     <option value="all">Все жанры</option>
                     <option value="роман">роман</option>
                     <option value="повесть">повесть</option>
                 </select>
+            </div>
+            <div className='filters__favorites'>
+                <button className='filters__favorites-btn'>
+                    <svg width="20" height="20" viewBox="0 0 24 24"
+                        fill="var(--icon-fill)"
+                        stroke="var(--icon-stroke)"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                </button>
             </div>
         </div>
 
