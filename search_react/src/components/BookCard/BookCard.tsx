@@ -43,7 +43,7 @@ function BookCard({
             </div>
             <button className='book-card__favorites' onClick={() => { favoriteBooksHandler(book.id);  }}>
                 <svg width="20" height="20" viewBox="0 0 24 24"
-                    fill="var(--icon-fill)"
+                    fill={favoritebook ? "currentColor" : "none"}
                     stroke="var(--icon-stroke)"
                     strokeWidth="2"
                     strokeLinecap="round"

@@ -10,8 +10,8 @@ function App() {
 
   const [searchQuery, setSearchQuery] = useState('');
   const [genre, setGenre] = useState('all');
-  const [favoriteBooks, setFavoriteBooks] = useState<number[]>([]);
-
+  const [favoriteBooks, setFavoriteBooks] = useState<number[]>([]); /* Добавляем в массив выбранные книги */
+  const [showOnlyFavorites, setShowOnlyFavorites] = useState(false); /* Выбираем фильтр по избранному */
 
 
   const filteredBooks = books.filter(
@@ -23,19 +23,25 @@ function App() {
 
       const matchGenre = genre === 'all' || book.genre === genre;
 
-      return matchSearch && matchGenre;
+      const matchFavorite = (showOnlyFavorites) ? favoriteBooks.includes(book.id) : true;
+
+      return matchSearch && matchGenre && matchFavorite;
     }
   )
 
+  function toggleFavorite(id : number) {
+     
+  }
 
   return (
 
     <div className='content'>
-      <Header/>
+      <Header />
       <Filters query={searchQuery} setQuery={setSearchQuery} genre={genre} setGenre={setGenre} />
-      <div className='catalog'>
-        <BookList books={filteredBooks}/>
+      <div className='wrapper'>
+        <BookList books={filteredBooks} favoritebook={} favoriteBooksHandler={favoriteBooksHandler}/>
       </div>
+      
     </div>
 
   )

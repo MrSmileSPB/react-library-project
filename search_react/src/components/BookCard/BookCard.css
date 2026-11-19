@@ -86,6 +86,6 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    --icon-fill: transparent;
+    --icon-fill: gold;
     --icon-stroke: black;
 }
