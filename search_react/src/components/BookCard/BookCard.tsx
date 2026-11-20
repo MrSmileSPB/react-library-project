@@ -5,9 +5,17 @@ type BookCardProps = {
     book: Book;
     defaultBackground?: string;
     defaultImage?: string;
+    isFavorite: boolean;
+    onToggleFavorite: (id: number) => void;
 };
 
-function BookCard({ book, defaultBackground = "../../img/book-background/04_desert_sunset.png", defaultImage = "../../img/book-images/noimage.png" }: BookCardProps) {
+function BookCard({
+    book,
+    defaultBackground = "../../img/book-background/04_desert_sunset.png",
+    defaultImage = "../../img/book-images/noimage.png",
+    isFavorite,
+    onToggleFavorite
+}: BookCardProps) {
 
     const book_img = book.book_image || defaultImage;
     const background = book.bg_image || defaultBackground;
@@ -33,6 +41,16 @@ function BookCard({ book, defaultBackground = "../../img/book-background/04_dese
                     </span>
                 </p>
             </div>
+            <button className='book-card__favorites' onClick={() => onToggleFavorite(book.id) }>
+                <svg width="20" height="20" viewBox="0 0 24 24"
+                    fill={isFavorite ? "var(--icon-fill)" : "none"} /* по другому как то но с таким же смыслом */
+                    stroke="var(--icon-stroke)"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+            </button>
         </div>
     )
 }

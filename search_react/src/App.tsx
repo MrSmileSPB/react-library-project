@@ -10,8 +10,16 @@ function App() {
 
   const [searchQuery, setSearchQuery] = useState('');
   const [genre, setGenre] = useState('all');
+  const [favoriteBooks, setFavoriteBooks] = useState<number[]>([]); /* Добавляем в массив выбранные книги */
+  const [showOnlyFavorites, setShowOnlyFavorites] = useState(false); /* Выбираем фильтр по избранному */
 
-
+  const toggleFavorite = (id: number) => {
+    if (favoriteBooks.includes(id)) {
+      setFavoriteBooks(favoriteBooks.filter((favId) => favId !== id));
+    } else {
+      setFavoriteBooks([...favoriteBooks, id]);
+    }
+  };
 
   const filteredBooks = books.filter(
     book => {
@@ -22,19 +30,21 @@ function App() {
 
       const matchGenre = genre === 'all' || book.genre === genre;
 
-      return matchSearch && matchGenre;
+      const matchFavorite = (showOnlyFavorites) ? favoriteBooks.includes(book.id) : true;
+
+      return matchSearch && matchGenre && matchFavorite;
     }
   )
-
 
   return (
 
     <div className='content'>
-      <Header/>
-      <Filters query={searchQuery} setQuery={setSearchQuery} genre={genre} setGenre={setGenre} />
-      <div className='catalog'>
-        <BookList books={filteredBooks} />
+      <Header />
+      <Filters query={searchQuery} setQuery={setSearchQuery} genre={genre} setGenre={setGenre} showOnlyFavorites={showOnlyFavorites} setShowOnlyFavorites={setShowOnlyFavorites} />
+      <div className='wrapper'>
+        <BookList books={filteredBooks} favoriteIds={favoriteBooks} onToggleFavorite={toggleFavorite} />
       </div>
+
     </div>
 
   )
