@@ -5,9 +5,11 @@ type FiltersProps = {
     setQuery: (str: string) => void;
     genre: string;
     setGenre: (str: string) => void;
+    showOnlyFavorites: boolean;
+    setShowOnlyFavorites: (val: boolean) => void;
 }
 
-function Filters({ query, setQuery, genre, setGenre }: FiltersProps) {
+function Filters({ query, setQuery, genre, setGenre, showOnlyFavorites, setShowOnlyFavorites }: FiltersProps) {
     return (
         <div className="filters">
             <div className='filters__search'>
@@ -37,9 +39,9 @@ function Filters({ query, setQuery, genre, setGenre }: FiltersProps) {
                 </select>
             </div>
             <div className='filters__favorites'>
-                <button className='filters__favorites-btn'>
+                <button className='filters__favorites-btn' onClick={() => setShowOnlyFavorites(!showOnlyFavorites)}>
                     <svg width="20" height="20" viewBox="0 0 24 24"
-                        fill="var(--icon-fill)"
+                        fill={showOnlyFavorites ? "var(--icon-fill)" : "none"}
                         stroke="var(--icon-stroke)"
                         strokeWidth="2"
                         strokeLinecap="round"

@@ -4,16 +4,16 @@ import './BookList.css'
 
 type BookListProps = {
     books: Book[];
-    favoritebook: boolean;
-    favoriteBooksHandler: (id: number) => void;
+    favoriteIds: number[];
+    onToggleFavorite: (id: number) => void;
 }
 
-function BookList({ books, favoritebook, favoriteBooksHandler }: BookListProps) {
+function BookList({ books, favoriteIds, onToggleFavorite }: BookListProps) {
     return (
             <div className='book-list'>
                 {books.map((book) => {
                     return (
-                        <BookCard key={book.id} book={book} favoritebook={favoritebook} favoriteBooksHandler={favoriteBooksHandler}/>
+                        <BookCard key={book.id} book={book} isFavorite={favoriteIds.includes(book.id)} onToggleFavorite={onToggleFavorite}/>
                     )
                 })}
             </div>

@@ -5,16 +5,16 @@ type BookCardProps = {
     book: Book;
     defaultBackground?: string;
     defaultImage?: string;
-    favoritebook: boolean;
-    favoriteBooksHandler: (id: number) => void;
+    isFavorite: boolean;
+    onToggleFavorite: (id: number) => void;
 };
 
 function BookCard({
     book,
     defaultBackground = "../../img/book-background/04_desert_sunset.png",
     defaultImage = "../../img/book-images/noimage.png",
-    favoritebook = false,
-    favoriteBooksHandler
+    isFavorite,
+    onToggleFavorite
 }: BookCardProps) {
 
     const book_img = book.book_image || defaultImage;
@@ -41,9 +41,9 @@ function BookCard({
                     </span>
                 </p>
             </div>
-            <button className='book-card__favorites' onClick={() => { favoriteBooksHandler(book.id);  }}>
+            <button className='book-card__favorites' onClick={() => onToggleFavorite(book.id) }>
                 <svg width="20" height="20" viewBox="0 0 24 24"
-                    fill={favoritebook ? "currentColor" : "none"}
+                    fill={isFavorite ? "var(--icon-fill)" : "none"} /* по другому как то но с таким же смыслом */
                     stroke="var(--icon-stroke)"
                     strokeWidth="2"
                     strokeLinecap="round"
